@@ -948,8 +948,8 @@ def display_content(value):
 
     return layout
 
+# Run the Dash app
 if __name__ == '__main__':
-    app.server.run(debug=True, host='127.0.0.1', port=5000)
-#
+    app.server.run(debug=True, threaded=True)
 
 

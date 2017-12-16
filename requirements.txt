@@ -16,7 +16,6 @@ Flask-Cors==3.0.3
 fuzzywuzzy==0.15.1
 gensim==3.0.1
 gevent==1.2.2
-gmpy2==2.0.8
 google-api-python-client==1.6.4
 h5py==2.7.1
 heapdict==1.0.0

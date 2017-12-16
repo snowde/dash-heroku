@@ -25,6 +25,10 @@ from flask import Flask
 from six.moves import cPickle as pickle #for performance
 import treemap as tm
 
+import os
+from random import randint
+
+
 ticker = "BJRI"
 #######
 
@@ -92,7 +96,7 @@ now = datetime.now()
 #stock_price_desc = describe
 
 
-server = Flask('my app')
+server = flask.Flask(__name__)
 
 
 def make_dash_table(df):
@@ -142,8 +146,9 @@ available_locations = ["All","Jacksonville","Wisconsin","Michigan"]
 tickers_loca = {"All":ticker,"Jacksonville":ticker,"Wisconsin":ticker,"Michigan":ticker}
 tickers_bench ={"MENU ETF":"CMG", "Filtered ETF":"CMG","Chipotle":"CMG"}
 
-app = dash.Dash('GS Bond II Portfolio', server=server,
-                url_base_pathname='/dash/gallery/goldman-sachs-report/', csrf_protect=False)
+server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
+app = dash.Dash(__name__, server=server)
+
 ##
 colors = {
     'background': '#111111',
@@ -946,3 +951,5 @@ def display_content(value):
 if __name__ == '__main__':
     app.server.run(debug=True, host='127.0.0.1', port=5000)
 #
+
+

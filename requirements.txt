@@ -12,7 +12,7 @@ dropbox==8.5.0
 fastcache==1.0.2
 Flask==0.12.2
 Flask-Compress==1.4.0
-Flask-Cors==3.0.3
+Flask-Cors==3.0.9
 fuzzywuzzy==0.15.1
 gensim==3.0.1
 gevent==1.2.2
